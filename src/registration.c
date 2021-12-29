@@ -420,7 +420,7 @@ void freenect_map_rgb_to_depth(freenect_device* dev, uint16_t* depth_mm, uint8_t
 }
 
 /// RGB -> depth mapping function (inverse of default FREENECT_DEPTH_REGISTERED mapping)
-void freenect_map_rgb_to_depth(freenect_device* dev, uint8_t* unpacked_depth, uint16_t* output_mm)
+void freenect_map_depth_to_rgb(freenect_device* dev, uint8_t* unpacked_depth, uint16_t* output_mm)
 {
 	freenect_registration* reg = &(dev->registration);
 
