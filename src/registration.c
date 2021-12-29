@@ -427,7 +427,7 @@ void freenect_map_depth_to_rgb(freenect_device* dev, uint8_t* unpacked_depth, ui
 	if (!reg->raw_to_mm_shift || !reg->depth_to_rgb_shift || !reg->registration_table)
 		freenect_init_registration(dev);
 
-	freenect_apply_registration(dev, unpacked_depth, output_mm, true);
+	freenect_apply_registration(dev, unpacked_depth, output_mm, false);
 }
 
 /// Allocate and fill registration tables

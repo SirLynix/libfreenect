@@ -708,6 +708,17 @@ FREENECTAPI void freenect_set_fw_address_nui(freenect_context * ctx, unsigned ch
  */
 FREENECTAPI void freenect_set_fw_address_k4w(freenect_context * ctx, unsigned char * fw_ptr, unsigned int num_bytes);
 
+/**
+ * Convert a packed array of n elements with vw useful bits into array of
+ * zero-padded 16bit elements.
+ *
+ * @param src The source packed array, of size (n * vw / 8) bytes
+ * @param dest The destination unpacked array, of size (n * 2) bytes
+ * @param vw The virtual width of elements, that is the number of useful bits for each of them
+ * @param n The number of elements (in particular, of the destination array), NOT a length in bytes
+ */
+
+FREENECTAPI void freenect_convert_packed_to_16bit(uint8_t *src, uint16_t *dest, int vw, int n);
 
 #ifdef __cplusplus
 }

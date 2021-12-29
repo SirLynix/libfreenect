@@ -374,6 +374,15 @@ static void convert_packed11_to_16bit(uint8_t *raw, uint16_t *frame, int n)
 	}
 }
 
+void freenect_convert_packed_to_16bit(uint8_t *src, uint16_t *dest, int vw, int n)
+{
+	if (vw == 11)
+		// fast-path
+		convert_packed11_to_16bit(src, dest, n);
+	else
+		convert_packed_to_8bit(src, dest, vw, n);
+}
+
 static void depth_process(freenect_device *dev, uint8_t *pkt, int len)
 {
 	freenect_context *ctx = dev->parent;

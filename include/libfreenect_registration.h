@@ -125,9 +125,9 @@ FREENECTAPI void freenect_camera_to_world(freenect_device* dev,
 FREENECTAPI void freenect_map_rgb_to_depth( freenect_device* dev,
 	uint16_t* depth_mm, uint8_t* rgb_raw, uint8_t* rgb_registered );
 
-// helper function to map one FREENECT_VIDEO_DEPTH_MM image to RGB space (performing FREENECT_DEPTH_REGISTERED)
+// helper function to map one FREENECT_DEPTH_11BIT image to unpacked depth in RGB space (performing what FREENECT_DEPTH_REGISTERED does)
 FREENECTAPI void freenect_map_depth_to_rgb( freenect_device* dev,
-	uint8_t* unpacked_depth, uint16_t* output_mm );
+	uint8_t* packed_depth, uint16_t* output_mm );
 
 #ifdef __cplusplus
 }
