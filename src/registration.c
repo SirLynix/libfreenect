@@ -419,6 +419,17 @@ void freenect_map_rgb_to_depth(freenect_device* dev, uint16_t* depth_mm, uint8_t
 	free(map);
 }
 
+/// RGB -> depth mapping function (inverse of default FREENECT_DEPTH_REGISTERED mapping)
+void freenect_map_rgb_to_depth(freenect_device* dev, uint8_t* unpacked_depth, uint16_t* output_mm)
+{
+	freenect_registration* reg = &(dev->registration);
+
+	if (!reg->raw_to_mm_shift || !reg->depth_to_rgb_shift || !reg->registration_table)
+		freenect_init_registration(dev);
+
+	freenect_apply_registration(dev, unpacked_depth, output_mm, true);
+}
+
 /// Allocate and fill registration tables
 /// This function should be called every time a new video (not depth!) mode is
 /// activated.
