@@ -30,7 +30,7 @@
 # CMake directives
 ######################################################################################
 
-cmake_minimum_required(VERSION 2.8.12)
+cmake_minimum_required(VERSION 2.8.12...3.12)
 
 ######################################################################################
 # Project declaration and options
@@ -46,8 +46,8 @@ include (FindOS)
 include (SetupDirectories)
 
 set (PROJECT_VER_MAJOR 0)
-set (PROJECT_VER_MINOR 6)
-set (PROJECT_VER_PATCH 4)
+set (PROJECT_VER_MINOR 7)
+set (PROJECT_VER_PATCH 5)
 set (PROJECT_VER
   "${PROJECT_VER_MAJOR}.${PROJECT_VER_MINOR}.${PROJECT_VER_PATCH}")
 set (PROJECT_APIVER
